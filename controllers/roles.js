@@ -1,12 +1,9 @@
 import express from 'express';
 import getConnection from '../database/connection.js';
-import sql from 'mssql';
-import dotenv from 'dotenv';
-import jwt from 'jsonwebtoken';
 
-const rolesRouter = express.Router();
+const router = express.Router();
 
-rolesRouter.get('/roles', async (req, res) => {
+router.get('/roles', async (req, res) => {
   try {
     const pool = await getConnection();
 
@@ -21,4 +18,4 @@ rolesRouter.get('/roles', async (req, res) => {
   }
 });
 
-export default rolesRouter;
+export { router as rolesRouter };

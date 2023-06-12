@@ -4,9 +4,9 @@ import sql from 'mssql';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 
-const centersRouter = express.Router();
+const router = express.Router();
 
-centersRouter.get('/centers', async (req, res) => {
+router.get('/centers', async (req, res) => {
   try {
     const pool = await getConnection();
 
@@ -22,7 +22,7 @@ centersRouter.get('/centers', async (req, res) => {
   }
 });
 
-centersRouter.post('/centersadd', async (req, res) => {
+router.post('/centersadd', async (req, res) => {
   try {
     const { facilityName, locationAddress, contactName, contactPhone, token } = req.body;
 
@@ -49,7 +49,7 @@ centersRouter.post('/centersadd', async (req, res) => {
   }
 });
 
-centersRouter.post('/centersedit', async (req, res) => {
+router.post('/centersedit', async (req, res) => {
   try {
     const { centerId, facilityName, locationAddress, contactName, contactPhone, token } = req.body;
 
@@ -80,7 +80,7 @@ centersRouter.post('/centersedit', async (req, res) => {
   }
 });
 
-centersRouter.delete('/centerdelete', async (req, res) => {
+router.delete('/centerdelete', async (req, res) => {
   try {
     const centerId = req.body.centerId; // Assuming the request body contains the centerId
 
@@ -104,4 +104,4 @@ centersRouter.delete('/centerdelete', async (req, res) => {
 });
 
 
-export default centersRouter;
+export { router as centersRouter };

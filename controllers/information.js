@@ -127,4 +127,4 @@ router.get('/information', async (req, res) => {
   }
 });
 
-module.exports = router;
+export {router as informationRouter}

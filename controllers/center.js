@@ -18,4 +18,4 @@ router.get('/center', async (req, res) => {
   }
 });
 
-export default router;
+export {router as centerRouter};
