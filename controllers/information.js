@@ -98,7 +98,7 @@ router.get('/information', async (req, res) => {
     }
 
     const feedback = result.recordset.reduce((acc, item) => {
-      const feedbackDate = moment(item.Feedback_Date).add(1, 'day').format('YYYY/MM/DD');
+      const feedbackDate = moment(item.Feedback_Date).format('YYYY/MM/DD');
       if (!acc[feedbackDate]) {
         acc[feedbackDate] = [];
       }
